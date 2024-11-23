@@ -15,15 +15,15 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Login to DockerHub
-      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+      run: echo "${{ secrets.mramirahmadi }}" | docker login -u "${{ secrets.mramirahmadi }}" --password-stdin
 
     - name: Build Docker Image
       run: docker build -t username/hello-world-nodejs:latest .
 
 
     - name: Push Docker Image
-      run: docker push username/hello-world-nodejs:latest
+      run: docker push mramirahmadi/hello-world-nodejs:latest
 
 
     - name: Run tests
-      run: docker run -d -p 3000:3000 username/hello-world-nodejs:latest && curl http://localhost:3000
+      run: docker run -d -p 3000:3000 mramirahmadi/hello-world-nodejs:latest && curl http://localhost:3000
